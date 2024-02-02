@@ -2,20 +2,17 @@
 
 __author__ = "730718367"
 
-#emoji bin
 BLUE_BOX: str = "\U0001F7E6"
 RED_BOX: str = "\U0001F7E5"
 WHITE_BOX: str = "\U00002B1C"
 
 
-#row/column size & secret row/column
 row_size = int(4)
 column_size = int(4)
 secret_row = int(3)
 secret_column = int(2)
 
 
-#output string bin
 BLANK = str(BLUE_BOX * int(row_size))
 
 HIT_1 = str(BLUE_BOX * (1-1) + RED_BOX + BLUE_BOX * (int(row_size)-1))
@@ -29,23 +26,21 @@ MISS_3 = str(BLUE_BOX * (3-1) + WHITE_BOX + BLUE_BOX * (int(row_size)-3))
 MISS_4 = str(BLUE_BOX * (4-1) + WHITE_BOX + BLUE_BOX * (int(row_size)-4))
 
 
-#using while loop to only accept valid inputs
 row_guess = int(input("Guess a row: "))
-while row_guess > row_size:
+while row_guess > row_size or row_guess < 1:
     row_guess = int(input(f"The grid is only {row_size} by {column_size}. Try again: "))
 
 column_guess = int(input("Guess a column: "))
-while column_guess > column_size:
+while column_guess > column_size or column_guess < 1:
     column_guess = int(input(f"The grid is only {row_size} by {column_size}. Try again: "))
 
 
-#while loop to create stacks of strings
 row_counter = int(0)
 
 while row_counter < row_size:
-    row_counter += 1 #staking counter
-    if row_guess == row_counter: #output string prints only when input row matches stacking counter
-        if column_guess == secret_column and row_guess == secret_row: #Both row and column must be equal to secret to print HIT strings
+    row_counter += 1 
+    if row_guess == row_counter: 
+        if column_guess == secret_column and row_guess == secret_row:
             if column_guess == 1:
                 print(HIT_1)
             elif column_guess == 2:
@@ -54,7 +49,7 @@ while row_counter < row_size:
                 print(HIT_3)
             elif column_guess == 4:
                 print(HIT_4)
-        else: #else print MISS strings
+        else: 
             if column_guess == 1:
                 print(MISS_1)
             elif column_guess == 2:
@@ -64,15 +59,14 @@ while row_counter < row_size:
             elif column_guess == 4:
                 print(MISS_4)
     else:
-        print(BLANK) #stacking BLANK strings to make row by column size output
+        print(BLANK)
 
 
-#hit or miss printer
-if row_guess == secret_row and column_guess == secret_column: #both correct, hit
+if row_guess == secret_row and column_guess == secret_column:
     print("Hit!")
-elif row_guess == secret_row and column_guess != secret_column: #row correct / column incorrect, close + hint
+elif row_guess == secret_row and column_guess != secret_column:
     print("Close! Correct row, wrong column.")
-elif row_guess != secret_row and column_guess == secret_column: #row incorrect / column correct, close + hint
+elif row_guess != secret_row and column_guess == secret_column:
     print("Close! Correct column, wrong row.")
-else: #else, miss
+else:
     print("Miss!")
