@@ -15,15 +15,15 @@ secret_column = int(2)
 
 BLANK = str(BLUE_BOX * int(row_size))
 
-HIT_1 = str(BLUE_BOX * (1-1) + RED_BOX + BLUE_BOX * (int(row_size)-1))
-HIT_2 = str(BLUE_BOX * (2-1) + RED_BOX + BLUE_BOX * (int(row_size)-2))
-HIT_3 = str(BLUE_BOX * (3-1) + RED_BOX + BLUE_BOX * (int(row_size)-3))
-HIT_4 = str(BLUE_BOX * (4-1) + RED_BOX + BLUE_BOX * (int(row_size)-4))
+HIT_1 = str(BLUE_BOX * (1 - 1) + RED_BOX + BLUE_BOX * (int(row_size) - 1))
+HIT_2 = str(BLUE_BOX * (2 - 1) + RED_BOX + BLUE_BOX * (int(row_size) - 2))
+HIT_3 = str(BLUE_BOX * (3 - 1) + RED_BOX + BLUE_BOX * (int(row_size) - 3))
+HIT_4 = str(BLUE_BOX * (4 - 1) + RED_BOX + BLUE_BOX * (int(row_size) - 4))
 
-MISS_1 = str(BLUE_BOX * (1-1) + WHITE_BOX + BLUE_BOX * (int(row_size)-1))
-MISS_2 = str(BLUE_BOX * (2-1) + WHITE_BOX + BLUE_BOX * (int(row_size)-2))
-MISS_3 = str(BLUE_BOX * (3-1) + WHITE_BOX + BLUE_BOX * (int(row_size)-3))
-MISS_4 = str(BLUE_BOX * (4-1) + WHITE_BOX + BLUE_BOX * (int(row_size)-4))
+MISS_1 = str(BLUE_BOX * (1 - 1) + WHITE_BOX + BLUE_BOX * (int(row_size) - 1))
+MISS_2 = str(BLUE_BOX * (2 - 1) + WHITE_BOX + BLUE_BOX * (int(row_size) - 2))
+MISS_3 = str(BLUE_BOX * (3 - 1) + WHITE_BOX + BLUE_BOX * (int(row_size) - 3))
+MISS_4 = str(BLUE_BOX * (4 - 1) + WHITE_BOX + BLUE_BOX * (int(row_size) - 4))
 
 
 row_guess = int(input("Guess a row: "))
