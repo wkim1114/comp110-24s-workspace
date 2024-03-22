@@ -15,12 +15,12 @@ def test_add_by_kind_use_case() -> None:
 
 
 def test_add_by_kind_edge_case() -> None:
-    """Test function add_by_kind with non-existing dict[str] value."""
-    test_by_kind: dict[str, list[str]] = {"flower": ["marigold", "zinnia"], "vegetable": ["carrots"]}
-    test_plant_kind: str = "fruit"
-    test_new_plant: str = "blueberry"
+    """Test function add_by_kind with empty dictionary."""
+    test_by_kind: dict[str, list[str]] = {}
+    test_plant_kind: str = "flower"
+    test_new_plant: str = "daisy"
     add_by_kind(test_by_kind, test_plant_kind, test_new_plant)
-    assert test_by_kind == {"flower": ["marigold", "zinnia"], "vegetable": ["carrots"], "fruit": ["blueberry"]}
+    assert test_by_kind == {"flower": ["daisy"]}
 
 
 def test_add_by_date_use_case() -> None:
@@ -51,9 +51,9 @@ def test_lookup_by_kind_and_date_use_case() -> None:
 
 
 def test_lookup_by_kind_and_date_edge_case() -> None:
-    """Test function lookup_by_kind_and_date with value that do not exist in kind."""
+    """Test function lookup_by_kind_and_date with value that do not exist in both kind and month."""
     test_by_kind: dict[str, list[str]] = {"flower": ["marigold", "zinnia"], "vegetable": ["carrots"]}
     test_by_date: dict[str, list[str]] = {"April": ["marigold"], "June": ["carrots"]}
-    test_kind: str = "fruit"
+    test_kind: str = "flower"
     test_month: str = "June"
-    assert lookup_by_kind_and_date(test_by_kind, test_by_date, test_kind, test_month) == AssertionError
+    assert lookup_by_kind_and_date(test_by_kind, test_by_date, test_kind, test_month) == "No flowers to plant in June."
